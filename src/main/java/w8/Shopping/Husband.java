@@ -3,12 +3,18 @@ package w8.Shopping;
 import java.util.ArrayList;
 
 public class Husband implements Person {
-    ArrayList<Product> cart;
-    ArrayList<String> orderList;
-    Mall mall;
+    private ArrayList<Product> cart;
+    private ArrayList<String> orderList;
+    private Mall mall;
 
     Husband() {
         cart = new ArrayList<>();
+    }
+
+    public Husband(ArrayList<Product> cart, ArrayList<String> orderList, Mall mall) {
+        this.cart = cart;
+        this.orderList = orderList;
+        this.mall = mall;
     }
 
     public void setOrder(ArrayList<String> orderList) {

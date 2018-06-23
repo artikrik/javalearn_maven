@@ -36,13 +36,11 @@ public class Main {
 
 
 
-//        panBoris.setOrder(orderList);
-       // panBoris.doShopping();
+        panBoris.setOrder(orderList);
+        panBoris.doShopping();
 
-  //      klara.doShopping();
-        System.out.println();
-        Wife tamara =new Wife();
-        tamara.doShopping();
+        klara.doShopping();
+
     }
 
 }

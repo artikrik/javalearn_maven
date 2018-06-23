@@ -3,34 +3,38 @@ package w8.Shopping;
 import java.util.ArrayList;
 
 public class Wife implements Person {
-    Husband husband;
-    ArrayList<String> orderList;
+    private Husband husband;
+    private ArrayList<String> orderList;
 
-    public Wife() {
+    Wife() {
+        orderList = new ArrayList<>();
     }
 
-    public Wife(ArrayList<String> orderList) {
+    Wife (ArrayList<String> orderList) {
+        setOrderList(orderList);
+    }
+
+    Wife (Husband husband, ArrayList<String> orderList) {
+        setHusband(husband);
+        setOrderList(orderList);
+    }
+
+    ArrayList<String> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(ArrayList<String> orderList) {
         this.orderList = orderList;
     }
 
-    public Wife(Husband husband, ArrayList<String> orderList) {
+    void setHusband(Husband husband) {
         this.husband = husband;
-        this.orderList = orderList;
-    }
-
-    public void setHusband(Husband husband) {
-        this.husband = husband;
-    }
-
-
-    public ArrayList<String> getOrderList() {
-        return new ArrayList<String>();
     }
 
     @Override
     public void doShopping() {
-        if (husband != null && orderList!=null) {
-            husband.setOrder(getOrderList());
+        if (husband != null) {
+            husband.setOrder(orderList);
             husband.doShopping();
         } else {
             System.out.println("померла з голоду");
