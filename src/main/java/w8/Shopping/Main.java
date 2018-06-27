@@ -7,7 +7,7 @@ public class Main {
         Mall mall = new Mall();
 
         Shop tech = new Shop("Tech");
-        Shop meals = new Shop("Myasko");
+        Shop meals = new Shop("Meat");
 
         mall.addShop(tech);
         mall.addShop(meals);
@@ -16,17 +16,19 @@ public class Main {
         tech.addProduct(new Product("Sony", 100));
         tech.addProduct(new Product("Samsung", 80));
         tech.addProduct(new Product("Sharp", 70));
+        tech.addProduct(new Product("Apple", 300));
+        tech.addProduct(new Product("Acer", 40));
         meals.addProduct(new Product("Bread", 110));
         meals.addProduct(new Product("Sausage", 80));
         meals.addProduct(new Product("Butter", 70));
-
-
-        System.out.print(tech.toString());
-        System.out.print(meals.toString());
+        meals.addProduct(new Product("Milk", 300));
+        meals.addProduct(new Product("Potato", 40));
 
 
         Wife klara = new Wife();
+
         Husband panBoris = new Husband();
+
         panBoris.setMall(mall);
         klara.setHusband(panBoris);
 
@@ -35,12 +37,29 @@ public class Main {
         orderList.add("Apple");
 
 
-
         panBoris.setOrder(orderList);
+
         panBoris.doShopping();
+        System.out.println();
 
+        ArrayList<String> orderList2 = new ArrayList<>();
+        klara.setOrderList(orderList2);
+//        orderList2.clear();
+        orderList2.add("Sharp");
+        orderList2.add("Apple");
+        orderList2.add("Butter");
+
+        Husband panMykola = new Husband(orderList2, mall);
+//        panMykola.doShopping();
         klara.doShopping();
+        System.out.println();
+        klara.doShopping(panMykola);
+        System.out.println();
 
+
+        Wife tamara = new Wife(panMykola,orderList);
+        orderList.clear();
+        tamara.doShopping();
     }
 
 }

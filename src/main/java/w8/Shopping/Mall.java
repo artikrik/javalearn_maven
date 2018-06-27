@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Mall{
     private ArrayList<Shop> shopArrayList;
 
-    public Mall() {
-        shopArrayList = new ArrayList<Shop>();
+    Mall() {
+        shopArrayList = new ArrayList<>();
     }
 
     public void addShop(Shop shop) {
