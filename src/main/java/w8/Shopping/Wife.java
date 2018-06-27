@@ -10,11 +10,7 @@ public class Wife implements Person {
         orderList = new ArrayList<>();
     }
 
-    Wife (ArrayList<String> orderList) {
-        setOrderList(orderList);
-    }
-
-    Wife (Husband husband, ArrayList<String> orderList) {
+    Wife(Husband husband, ArrayList<String> orderList) {
         setHusband(husband);
         setOrderList(orderList);
     }
@@ -23,7 +19,7 @@ public class Wife implements Person {
         return orderList;
     }
 
-    public void setOrderList(ArrayList<String> orderList) {
+    void setOrderList(ArrayList<String> orderList) {
         this.orderList = orderList;
     }
 
@@ -33,11 +29,15 @@ public class Wife implements Person {
 
     @Override
     public void doShopping() {
-        if (husband != null) {
+        doShopping(husband);
+    }
+
+    public void doShopping(Husband husband) {
+        if (!orderList.isEmpty() && husband != null) {
             husband.setOrder(orderList);
             husband.doShopping();
         } else {
-            System.out.println("померла з голоду");
+            System.out.println("померла з голоду (Либо не указан муж, либо нету товаров в магазинах)");
         }
     }
 }
