@@ -1,7 +1,5 @@
 package w9;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -33,35 +31,31 @@ public class BoardOfFlights {
         this.flightList.add(flight);
     }
 
-    void tetComp (){
-        Comparator.comparingDouble(Flight::getPriceOfTicket).thenComparing(Flight::getManufacturer);
-    }
-
-    void print(){
+    void printBoard(){
         System.out.println(this.toString());
     }
 
     void printSortedFlightsByPriceOfTicket (){
         sortByPriceOfTicket(flightList);
-        print();
+        printBoard();
     }
 
     void printSortedFlightsByDistance (){
         sortByDistance(flightList);
-        print();
+        printBoard();
     }
 
     void printSortedFlightsByAirCompanyThenByPrice (){
         sortByAirCompany(flightList);
         sortByPriceOfTicket(flightList);
-        print();
+        printBoard();
     }
 
     void printSortedFlightsByDistanceThenByManufacturerThenByModel (){
         sortByDistance(flightList);
         sortByAirplaneManufacturer(flightList);
         sortByAirplaneModel(flightList);
-        print();
+        printBoard();
     }
 
     private static void sortByPriceOfTicket(List<Flight> flightList) {
