@@ -6,6 +6,8 @@ import w9.Models.Embraer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,18 +18,24 @@ public class Main {
         System.out.println(airplane2.toString());
         System.out.println(airplane3.toString());
 
-        Flight flight = new Flight("F1","Lufthansa",airplane,100.0,350);
-        Flight flight2 = new Flight("F2","Lufthansa",airplane2,120.2,500);
-        Flight flight3 = new Flight("F3","Lufthansa",airplane3,300.5,1200);
+        Flight flight = new Flight("F1", "Aab", airplane, 100.0, 350);
+        Flight flight2 = new Flight("F2", "Abc", airplane2, 120.2, 500);
+        Flight flight3 = new Flight("F3", "Acc", airplane3, 300.5, 1200);
 
-        ArrayList<Flight> flights = new ArrayList<>();
+        List<Flight> flights = new ArrayList<>();
         BoardOfFlights board = new BoardOfFlights(flights);
+        board.addToFlightList(flight3);
         board.addToFlightList(flight);
         board.addToFlightList(flight2);
-        board.addToFlightList(flight3);
 
-        System.out.println();
+
         System.out.println(board.toString());
-//        System.out.println(board.toString());
+
+        board.printSortedFlightsByPriceOfTicket();
+        System.out.println(board.toString());
+
+        BoardManagement manager = new BoardManagement(board.getFlightList());
+        System.out.println("Search " + manager.searchByPrice(100.0));
+        System.out.println("Search " + manager.searchByAirCompany("Aab"));
     }
 }

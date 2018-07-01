@@ -9,7 +9,6 @@ class Flight {
     private String manufacturer;
     private String model;
 
-
     Flight(String numberOfFlight, String airCompany, Airplane airplane, double priceOfTicket, int distance) {
         setNumberOfFlight(numberOfFlight);
         setAirCompany(airCompany);
@@ -60,16 +59,19 @@ class Flight {
         return distance;
     }
 
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
     @Override
     public String toString() {
-        return "Flight{" +
-                "numberOfFlight='" + numberOfFlight + '\'' +
-                ", airCompany='" + airCompany + '\'' +
-                ", airplane=" + airplane +
-                ", priceOfTicket=" + priceOfTicket +
-                ", distance=" + distance +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", model='" + model + '\'' +
-                '}';
+        return "numberOfFlight= " + numberOfFlight + '\t' +
+                "airCompany= " + airCompany + '\t' + airplane.toString() + '\t' +
+                "priceOfTicket= " + priceOfTicket + '\t' +
+                "distance= " + distance;
     }
 }

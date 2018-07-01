@@ -1,8 +1,5 @@
 package w9;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Airplane {
     private String name;
     private Enum manufacturer;
@@ -27,7 +24,7 @@ public class Airplane {
         return manufacturer;
     }
 
-    public void setManufacturer(Enum manufacturer) {
+    private void setManufacturer(Enum manufacturer) {
         this.manufacturer = manufacturer;
     }
 
@@ -35,7 +32,7 @@ public class Airplane {
         return model;
     }
 
-    public void setModel(Enum model) {
+    private void setModel(Enum model) {
         this.model = model;
     }
 
@@ -62,10 +59,6 @@ public class Airplane {
 
     @Override
     public String toString() {
-        return "Airplane{" +
-                "name='" + name + '\'' +
-                ", manufacturer=" + manufacturer +
-                ", model=" + model.toString() +
-                '}';
+        return "manufacturer= " + manufacturer.toString() + '\t' + "model= " + model.toString();
     }
 }
