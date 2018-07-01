@@ -5,8 +5,6 @@ import w9.Models.Boeing;
 import w9.Models.Embraer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -37,5 +35,15 @@ public class Main {
         BoardManagement manager = new BoardManagement(board.getFlightList());
         System.out.println("Search " + manager.searchByPrice(100.0));
         System.out.println("Search " + manager.searchByAirCompany("Aab"));
+
+        System.out.println();
+        manager.deleteByNumberOfFlight("F2");
+        System.out.println(board.toString());
+
+        manager.deleteByAirplaneModel("Airbus");
+        System.out.println(board.toString());
+        manager.deleteByAirplaneModel("A320");
+        System.out.println(board.toString());
+
     }
 }

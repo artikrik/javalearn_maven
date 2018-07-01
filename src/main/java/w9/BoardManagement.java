@@ -1,19 +1,26 @@
 package w9;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BoardManagement extends BoardOfFlights {
 
     private List<Flight> flightList = super.getFlightList();
-    private String numberOfFlight;
+
+    @Override
+    public String toString() {
+        StringBuilder temp = new StringBuilder();
+        for (Flight flight : flightList) {
+            temp.append(flight.toString()).append("\n");
+        }
+        return temp.toString();
+    }
 
     BoardManagement(List<Flight> flightList) {
         super(flightList);
     }
 
-    public List<Flight> searchByNumberOfFlight (String numberOfFlight) {
+    List<Flight> searchByNumberOfFlight(String numberOfFlight) {
         List<Flight> filtered;
         filtered = flightList.stream()
                 .filter(flight -> flight.getNumberOfFlight().equals(numberOfFlight))
@@ -21,7 +28,7 @@ public class BoardManagement extends BoardOfFlights {
         return filtered;
     }
 
-    List<Flight> searchByAirCompany (String airCompany) {
+    List<Flight> searchByAirCompany(String airCompany) {
         List<Flight> filtered;
         filtered = flightList.stream()
                 .filter(flight -> flight.getAirCompany().equals(airCompany))
@@ -29,7 +36,7 @@ public class BoardManagement extends BoardOfFlights {
         return filtered;
     }
 
-    List<Flight> searchByPrice (double priceOfTicket) {
+    List<Flight> searchByPrice(double priceOfTicket) {
         List<Flight> filtered;
         filtered = flightList.stream()
                 .filter(flight -> flight.getPriceOfTicket() == priceOfTicket)
@@ -37,4 +44,11 @@ public class BoardManagement extends BoardOfFlights {
         return filtered;
     }
 
+    void deleteByNumberOfFlight(String numberOfFlight) {
+        flightList.removeIf(flight -> flight.getNumberOfFlight().equals(numberOfFlight));
+    }
+
+    void deleteByAirplaneModel(String model) {
+        flightList.removeIf(flight -> flight.getModel().equals(model));
+    }
 }
