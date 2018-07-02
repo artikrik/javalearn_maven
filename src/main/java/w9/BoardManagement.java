@@ -48,7 +48,6 @@ public class BoardManagement extends BoardOfFlights {
         flightList.removeIf(flight -> flight.getNumberOfFlight().equals(numberOfFlight));
     }
 
-    void deleteByAirplaneModel(String model) {
-        flightList.removeIf(flight -> flight.getModel().equals(model));
+    void deleteByAirplaneModel(String model) {flightList.removeIf(flight -> flight.getModel().equals(model));
     }
 }

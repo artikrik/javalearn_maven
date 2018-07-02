@@ -1,13 +1,13 @@
 package w9;
 
+import java.util.Objects;
+
 class Flight {
     private String numberOfFlight;
     private String airCompany;
     private Airplane airplane;
     private double priceOfTicket;
     private int distance;
-    private String manufacturer;
-    private String model;
 
     Flight(String numberOfFlight, String airCompany, Airplane airplane, double priceOfTicket, int distance) {
         setNumberOfFlight(numberOfFlight);
@@ -15,8 +15,6 @@ class Flight {
         setAirplane(airplane);
         setPriceOfTicket(priceOfTicket);
         setDistance(distance);
-        this.manufacturer = this.airplane.getManufacturer().toString();
-        this.model = airplane.getModel().toString();
     }
 
     private void setNumberOfFlight(String numberOfFlight) {
@@ -47,8 +45,11 @@ class Flight {
         return airCompany;
     }
 
-    public Airplane getAirplane() {
-        return airplane;
+    public String getModel() {
+        return airplane.model;
+    }
+    public String getManufacturer() {
+        return airplane.manufacturer;
     }
 
     public double getPriceOfTicket() {
@@ -59,14 +60,6 @@ class Flight {
         return distance;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
     @Override
     public String toString() {
         return "numberOfFlight= " + numberOfFlight + '\t' +
@@ -74,4 +67,5 @@ class Flight {
                 "priceOfTicket= " + priceOfTicket + '\t' +
                 "distance= " + distance;
     }
+
 }

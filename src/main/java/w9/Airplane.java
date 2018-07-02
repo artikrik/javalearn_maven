@@ -1,64 +1,28 @@
 package w9;
 
-public class Airplane {
-    private String name;
-    private Enum manufacturer;
-    private Enum model;
 
+public enum Airplane {
+    AIRBUS_A310("Airbus", "A310"),
+    AIRBUS_A320("Airbus", "A320"),
+    AIRBUS_A330("Airbus", "A330"),
+    BOEING_737("Boeing", "737"),
+    BOEING_747("Boeing", "747"),
+    BOEING_767("Boeing", "767"),
+    BOEING_777("Boeing", "777"),
+    EMBRAER_175("Embraer", "175"),
+    EMBRAER_190("Embraer", "190"),
+    EMBRAER_195("Embraer", "195");
 
-    Airplane(Enum manufacturer, Enum model) {
-        setManufacturer(manufacturer);
-        setModel(model);
-        setName();
-    }
+    String manufacturer;
+    String model;
 
-    public String getName() {
-        return name;
-    }
-
-    private void setName() {
-        this.name = getManufacturer().name() + " " + getModel().toString();
-    }
-
-    public Enum getManufacturer() {
-        return manufacturer;
-    }
-
-    private void setManufacturer(Enum manufacturer) {
+    Airplane(String manufacturer, String model) {
         this.manufacturer = manufacturer;
-    }
-
-    public Enum getModel() {
-        return model;
-    }
-
-    private void setModel(Enum model) {
         this.model = model;
     }
 
-    //    public static ArrayList<String> embraerModels = new ArrayList<>(
-//            Arrays.asList(
-//                    "175",
-//                    "190",
-//                    "195"
-//            ));
-//    public static ArrayList<String> boeingModels = new ArrayList<>(
-//            Arrays.asList(
-//                    "737",
-//                    "747",
-//                    "767",
-//                    "777"
-//            ));
-//    static ArrayList<String> airbusModels = new ArrayList<>(
-//            Arrays.asList(
-//                    "A310",
-//                    "A320",
-//                    "A330"
-//            ));
-
-
     @Override
     public String toString() {
-        return "manufacturer= " + manufacturer.toString() + '\t' + "model= " + model.toString();
+        return manufacturer + " " + model;
     }
 }
