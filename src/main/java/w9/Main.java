@@ -51,6 +51,7 @@ public class Main {
         manager.deleteByAirplaneModel("A320");
         System.out.println(board.toString());
 
+        board.printBoard();
     }
 
     private static void comparatorByPrice(List<Flight> flights) {
