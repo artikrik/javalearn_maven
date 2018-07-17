@@ -1,7 +1,5 @@
 package w9;
 
-import java.util.Objects;
-
 class Flight {
     private String numberOfFlight;
     private String airCompany;
@@ -15,6 +13,14 @@ class Flight {
         setAirplane(airplane);
         setPriceOfTicket(priceOfTicket);
         setDistance(distance);
+    }
+
+    @Override
+    public String toString() {
+        return "numberOfFlight= " + numberOfFlight + '\t' +
+                "airCompany= " + airCompany + '\t' + airplane.toString() + '\t' +
+                "priceOfTicket= " + priceOfTicket + '\t' +
+                "distance= " + distance;
     }
 
     private void setNumberOfFlight(String numberOfFlight) {
@@ -60,12 +66,55 @@ class Flight {
         return distance;
     }
 
-    @Override
-    public String toString() {
-        return "numberOfFlight= " + numberOfFlight + '\t' +
-                "airCompany= " + airCompany + '\t' + airplane.toString() + '\t' +
-                "priceOfTicket= " + priceOfTicket + '\t' +
-                "distance= " + distance;
+    //COMPARATORS
+    public static class ByDistance extends AbstractComparator {
+        ByDistance(AbstractComparator next) {
+            super(next);
+        }
+
+        public int doCompare(Flight flight1, Flight flight2) {
+            return flight1.getDistance() - flight2.getDistance();
+        }
+    }
+
+    public static class ByPriceOfTicket extends AbstractComparator {
+        ByPriceOfTicket(AbstractComparator next) {
+            super(next);
+        }
+
+        public int doCompare(Flight flight1, Flight flight2) {
+            return Double.compare(flight1.getPriceOfTicket(),flight2.getPriceOfTicket());
+        }
+    }
+
+    public static class ByAirCompany extends AbstractComparator {
+        public ByAirCompany(AbstractComparator next) {
+            super(next);
+        }
+
+        public int doCompare(Flight flight1, Flight flight2) {
+            return flight1.getAirCompany().compareTo(flight2.getAirCompany());
+        }
+    }
+
+    public static class ByManufacturer extends AbstractComparator {
+        public ByManufacturer(AbstractComparator next) {
+            super(next);
+        }
+
+        public int doCompare(Flight flight1, Flight flight2) {
+            return flight1.getManufacturer().compareTo(flight2.getManufacturer());
+        }
+    }
+
+    public static class ByModel extends AbstractComparator {
+        public ByModel(AbstractComparator next) {
+            super(next);
+        }
+
+        public int doCompare(Flight flight1, Flight flight2) {
+            return flight1.getModel().compareTo(flight2.getModel());
+        }
     }
 
 }
