@@ -2,14 +2,27 @@ package w8.Shopping;
 
 import java.util.ArrayList;
 
-public class Shop extends ArrayList<Product>{
+class Shop {
     private String name;
+    private ArrayList<Product> productsInShop;
 
-    Shop(String name) {
-                this.name = name;
+    Shop() {
+        productsInShop = new ArrayList<>();
     }
 
-//    @Override
+    Shop(String name) {
+        productsInShop = new ArrayList<>();
+        setName(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+    //    @Override
 //    public String toString() {
 //        StringBuilder result = new StringBuilder();
 //
@@ -20,7 +33,11 @@ public class Shop extends ArrayList<Product>{
 //        return result.toString();
 //    }
 
+    ArrayList<Product> getProductsInShop() {
+        return productsInShop;
+    }
+
     void addProduct(Product product) {
-        this.add(product);
+        this.productsInShop.add(product);
     }
 }

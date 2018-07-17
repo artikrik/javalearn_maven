@@ -3,25 +3,23 @@ package w8.Shopping;
 import java.util.ArrayList;
 
 public class Husband implements Person {
-    private ArrayList<Product> cart;
+    private ArrayList<Product> cart = new ArrayList<>();
     private ArrayList<String> orderList;
     private Mall mall;
 
-    Husband() {
-        cart = new ArrayList<>();
+    Husband(){
+        
     }
-
-    Husband( ArrayList<String> orderList, Mall mall) {
-        cart = new ArrayList<>();
+    Husband(ArrayList<String> orderList, Mall mall) {
         setOrder(orderList);
         setMall(mall);
     }
 
-    public void setOrder(ArrayList<String> orderList) {
+    void setOrder(ArrayList<String> orderList) {
         this.orderList = orderList;
     }
 
-    public void setMall(Mall mall) {
+    void setMall(Mall mall) {
         this.mall = mall;
     }
 
@@ -38,12 +36,11 @@ public class Husband implements Person {
     }
 
 
-
     private void printTotal() {
         ArrayList<Shop> shops = mall.getShopList();
         System.out.println("Total list:");
         for (Shop shop : shops) {
-            for (Product product : shop) {
+            for (Product product : shop.getProductsInShop()) {
                 System.out.println(product.toString());
             }
         }
@@ -65,7 +62,7 @@ public class Husband implements Person {
 
     private void passShop(Shop shop) {
         for (String order : orderList)
-            for (Product product : shop) {
+            for (Product product : shop.getProductsInShop()) {
                 if (product.getName().matches(order))
                     addToCart(product);
             }

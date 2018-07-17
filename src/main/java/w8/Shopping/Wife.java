@@ -29,10 +29,10 @@ public class Wife implements Person {
 
     @Override
     public void doShopping() {
-        doShopping(husband);
+        doShopping(husband, orderList);
     }
 
-    public void doShopping(Husband husband) {
+    void doShopping(Husband husband, ArrayList<String> orderList) {
         if (!orderList.isEmpty() && husband != null) {
             husband.setOrder(orderList);
             husband.doShopping();

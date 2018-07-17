@@ -51,7 +51,7 @@ public class Main {
         Husband panMykola = new Husband(orderList2, mall);
         klara.doShopping();
         System.out.println();
-        klara.doShopping(panMykola);
+        klara.doShopping(panMykola,orderList2);
         System.out.println();
 
 
